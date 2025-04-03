@@ -18,13 +18,13 @@ mkdir -p ${OUTPUT_DIR}
 echo "Running search engine..."
 python3 src/main.py --documents ${DOCUMENTS_PATH} --queries ${QUERIES_PATH} --output_dir ${OUTPUT_DIR} --run_id ${RUN_ID}
 
-# Check if trec_eval is installed
-if command -v trec_eval &> /dev/null; then
-    echo "Running evaluation with trec_eval..."
-    python3 evaluate.py --qrels ${QRELS_PATH} --results_dir ${OUTPUT_DIR}
-else
-    echo "trec_eval not found. To evaluate the results, install trec_eval and run:"
-    echo "python3 evaluate.py --qrels ${QRELS_PATH} --results_dir ${OUTPUT_DIR}"
-fi
+# # Check if trec_eval is installed
+# if command -v trec_eval &> /dev/null; then
+#     echo "Running evaluation with trec_eval..."
+#     python3 evaluate.py --qrels ${QRELS_PATH} --results_dir ${OUTPUT_DIR}
+# else
+#     echo "trec_eval not found. To evaluate the results, install trec_eval and run:"
+#     echo "python3 evaluate.py --qrels ${QRELS_PATH} --results_dir ${OUTPUT_DIR}"
+# fi
 
 echo "Done!" 
